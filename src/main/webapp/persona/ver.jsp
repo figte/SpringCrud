@@ -1,9 +1,19 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+<%
+    HttpSession s=session;
+    
+    try {
+            
+       //VALIDADNDO LA SESION.   
+    Boolean estado=(Boolean)s.getAttribute("estado");
+    if (estado) {
+ %>
+ <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
          pageEncoding="ISO-8859-1"%>
 
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
+ <html>
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -14,7 +24,7 @@
     </head>
     <body>
 
-
+        <%@include file="../componentes/nabvar.jsp" %>
         <div class="container" style="margin-top:3%">
 
 
@@ -59,3 +69,11 @@
         </script>
     </body>
 </html>
+<% 
+  }else{
+       response.sendRedirect("/SpringCrud/");
+  }
+ } catch (Exception e) {
+       response.sendRedirect("/SpringCrud/");  
+}
+%>

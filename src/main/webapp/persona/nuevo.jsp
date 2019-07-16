@@ -1,9 +1,12 @@
-<%-- 
-    Document   : nuevo
-    Created on : 06-13-2019, 01:40:16 PM
-    Author     : FIGTE
---%>
-
+<%
+    HttpSession s=session;
+    
+    try {
+            
+          //VALIDADNDO LA SESION.
+    Boolean estado=(Boolean)s.getAttribute("estado");
+    if (estado) {
+ %>  
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -13,6 +16,7 @@
         <%@include file="../componentes/asset.jspf" %>
     </head>
     <body>
+        <%@include file="../componentes/nabvar.jsp" %>
         <div class="container ">
             <h1 class="text-center mb-2"><span class="fas fa-file-alt"></span> Nuevo Registro</h1>
             <hr>
@@ -41,3 +45,11 @@
         </div>
     </body>
 </html>
+<% 
+  }else{
+       response.sendRedirect("/SpringCrud/");
+  }
+ } catch (Exception e) {
+       response.sendRedirect("/SpringCrud/");  
+}
+%>

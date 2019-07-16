@@ -4,8 +4,8 @@ package com.personal.idao;
 import com.personal.modelos.Persona;
 import java.util.List;
 
-
 public interface IPersonaDao {
+    
     public List<Persona> listar();
 
     public Persona obtenerById(int id);

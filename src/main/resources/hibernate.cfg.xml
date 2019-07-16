@@ -46,5 +46,11 @@ Contributor(s):
     <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/bd?zeroDateTimeBehavior=convertToNull</property>
     <property name="hibernate.connection.username">root</property>
     <mapping class="com.personal.modelos.Persona"/>
+    <mapping class="com.personal.modelos.Cliente"/>
+    <mapping class="com.personal.modelos.Venta"/>
+    <mapping class="com.personal.modelos.Producto"/>
+    <mapping class="com.personal.modelos.DetallesVenta"/>
+    <mapping class="com.personal.modelos.Usuario"/>
+    <mapping class="com.personal.modelos.Rol"/>
   </session-factory>
 </hibernate-configuration>

@@ -16,6 +16,43 @@
 CREATE DATABASE IF NOT EXISTS `bd` /*!40100 DEFAULT CHARACTER SET latin1 */;
 USE `bd`;
 
+-- Volcando estructura para tabla bd.clientes
+CREATE TABLE IF NOT EXISTS `clientes` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `nombre` varchar(50) NOT NULL DEFAULT '0',
+  `direccion` varchar(100) DEFAULT '0',
+  `telefono` varchar(50) DEFAULT '0',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+
+-- Volcando datos para la tabla bd.clientes: ~0 rows (aproximadamente)
+DELETE FROM `clientes`;
+/*!40000 ALTER TABLE `clientes` DISABLE KEYS */;
+INSERT INTO `clientes` (`id`, `nombre`, `direccion`, `telefono`) VALUES
+	(1, 'jose perez', 'sonsonate', '24205659');
+/*!40000 ALTER TABLE `clientes` ENABLE KEYS */;
+
+-- Volcando estructura para tabla bd.detalles_ventas
+CREATE TABLE IF NOT EXISTS `detalles_ventas` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `cantidad` int(11) NOT NULL,
+  `idProducto` int(11) NOT NULL DEFAULT '0',
+  `idVenta` int(11) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`id`),
+  KEY `FK_detalles_ventas_productos` (`idProducto`),
+  KEY `FK_detalles_ventas_ventas` (`idVenta`),
+  CONSTRAINT `FK_detalles_ventas_productos` FOREIGN KEY (`idProducto`) REFERENCES `productos` (`id`) ON UPDATE CASCADE,
+  CONSTRAINT `FK_detalles_ventas_ventas` FOREIGN KEY (`idVenta`) REFERENCES `ventas` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+
+-- Volcando datos para la tabla bd.detalles_ventas: ~2 rows (aproximadamente)
+DELETE FROM `detalles_ventas`;
+/*!40000 ALTER TABLE `detalles_ventas` DISABLE KEYS */;
+INSERT INTO `detalles_ventas` (`id`, `cantidad`, `idProducto`, `idVenta`) VALUES
+	(1, 2, 3, 1),
+	(2, 1, 4, 1);
+/*!40000 ALTER TABLE `detalles_ventas` ENABLE KEYS */;
+
 -- Volcando estructura para tabla bd.personas
 CREATE TABLE IF NOT EXISTS `personas` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
@@ -24,7 +61,7 @@ CREATE TABLE IF NOT EXISTS `personas` (
   `edad` int(11) DEFAULT '0',
   `direccion` varchar(100) DEFAULT '0',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=27 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=25 DEFAULT CHARSET=latin1;
 
 -- Volcando datos para la tabla bd.personas: ~6 rows (aproximadamente)
 DELETE FROM `personas`;
@@ -34,9 +71,27 @@ INSERT INTO `personas` (`id`, `nombre`, `apellidos`, `edad`, `direccion`) VALUES
 	(17, 'Julia', 'Medina', 30, 'Turin'),
 	(22, 'Marco', 'Gonzales', 19, 'Ataco'),
 	(23, 'Felipe', 'Perez', 23, 'Ataco'),
-	(24, 'Maria', 'Lopez', 20, 'Ahuachapan'),
-	(26, 'Federico', 'Hernandez', 50, 'Santa Ana');
+	(24, 'Maria', 'Lopez', 20, 'Ahuachapan');
 /*!40000 ALTER TABLE `personas` ENABLE KEYS */;
+
+-- Volcando estructura para tabla bd.productos
+CREATE TABLE IF NOT EXISTS `productos` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `nombre` varchar(50) NOT NULL DEFAULT '0',
+  `precio` double NOT NULL DEFAULT '0',
+  `existencias` int(11) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
+
+-- Volcando datos para la tabla bd.productos: ~4 rows (aproximadamente)
+DELETE FROM `productos`;
+/*!40000 ALTER TABLE `productos` DISABLE KEYS */;
+INSERT INTO `productos` (`id`, `nombre`, `precio`, `existencias`) VALUES
+	(1, 'jabon', 1.5, 50),
+	(2, 'shampoo', 2, 50),
+	(3, 'Camisa tipo polo', 3.5, 60),
+	(4, 'Pantalon Levi', 15, 50);
+/*!40000 ALTER TABLE `productos` ENABLE KEYS */;
 
 -- Volcando estructura para tabla bd.roles
 CREATE TABLE IF NOT EXISTS `roles` (
@@ -84,19 +139,38 @@ INSERT INTO `trabajador` (`id`, `nombre`, `email`, `cargo`, `direccion`) VALUES
 -- Volcando estructura para tabla bd.usuarios
 CREATE TABLE IF NOT EXISTS `usuarios` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `nombre` varchar(50) DEFAULT NULL,
+  `username` varchar(50) DEFAULT NULL,
   `idRol` int(11) DEFAULT NULL,
+  `password` varchar(100) DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `FK_usuarios_roles` (`idRol`),
   CONSTRAINT `FK_usuarios_roles` FOREIGN KEY (`idRol`) REFERENCES `roles` (`id`) ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
 
--- Volcando datos para la tabla bd.usuarios: ~0 rows (aproximadamente)
+-- Volcando datos para la tabla bd.usuarios: ~2 rows (aproximadamente)
 DELETE FROM `usuarios`;
 /*!40000 ALTER TABLE `usuarios` DISABLE KEYS */;
-INSERT INTO `usuarios` (`id`, `nombre`, `idRol`) VALUES
-	(1, 'juan peres', 1);
+INSERT INTO `usuarios` (`id`, `username`, `idRol`, `password`) VALUES
+	(1, 'juan', 1, 'admin'),
+	(2, 'elmer', 1, 'secret');
 /*!40000 ALTER TABLE `usuarios` ENABLE KEYS */;
+
+-- Volcando estructura para tabla bd.ventas
+CREATE TABLE IF NOT EXISTS `ventas` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `fecha` date NOT NULL,
+  `idcliente` int(11) NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `FK_ventas_clientes` (`idcliente`),
+  CONSTRAINT `FK_ventas_clientes` FOREIGN KEY (`idcliente`) REFERENCES `clientes` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+
+-- Volcando datos para la tabla bd.ventas: ~0 rows (aproximadamente)
+DELETE FROM `ventas`;
+/*!40000 ALTER TABLE `ventas` DISABLE KEYS */;
+INSERT INTO `ventas` (`id`, `fecha`, `idcliente`) VALUES
+	(1, '2019-07-14', 1);
+/*!40000 ALTER TABLE `ventas` ENABLE KEYS */;
 
 /*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;
 /*!40014 SET FOREIGN_KEY_CHECKS=IF(@OLD_FOREIGN_KEY_CHECKS IS NULL, 1, @OLD_FOREIGN_KEY_CHECKS) */;
