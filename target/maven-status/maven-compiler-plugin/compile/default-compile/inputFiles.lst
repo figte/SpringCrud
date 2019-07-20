@@ -1,6 +1,7 @@
 C:\Users\FIGTE\Desktop\MisRespositorios\SpringCrud\src\main\java\com\personal\controladores\AutentificacionController.java
 C:\Users\FIGTE\Desktop\MisRespositorios\SpringCrud\src\main\java\com\personal\modelos\Cliente.java
 C:\Users\FIGTE\Desktop\MisRespositorios\SpringCrud\src\main\java\com\personal\modelos\Venta.java
+C:\Users\FIGTE\Desktop\MisRespositorios\SpringCrud\src\main\java\com\personal\dao\ProductosDaoHibernate.java
 C:\Users\FIGTE\Desktop\MisRespositorios\SpringCrud\src\main\java\com\personal\idao\IPersonaDao.java
 C:\Users\FIGTE\Desktop\MisRespositorios\SpringCrud\src\main\java\com\personal\modelos\Usuario.java
 C:\Users\FIGTE\Desktop\MisRespositorios\SpringCrud\src\main\java\com\personal\dao\VentasDaoHibernate.java
@@ -8,6 +9,7 @@ C:\Users\FIGTE\Desktop\MisRespositorios\SpringCrud\src\main\java\com\personal\mo
 C:\Users\FIGTE\Desktop\MisRespositorios\SpringCrud\src\main\java\com\personal\servicios\UsuariosServices.java
 C:\Users\FIGTE\Desktop\MisRespositorios\SpringCrud\src\main\java\com\personal\modelos\DetallesVenta.java
 C:\Users\FIGTE\Desktop\MisRespositorios\SpringCrud\src\main\java\com\personal\dao\PersonaDaoHibernate.java
+C:\Users\FIGTE\Desktop\MisRespositorios\SpringCrud\src\main\java\com\personal\controladores\ProductoController.java
 C:\Users\FIGTE\Desktop\MisRespositorios\SpringCrud\src\main\java\com\personal\modelos\Producto.java
 C:\Users\FIGTE\Desktop\MisRespositorios\SpringCrud\src\main\java\com\personal\controladores\PersonaController.java
 C:\Users\FIGTE\Desktop\MisRespositorios\SpringCrud\src\main\java\com\personal\controladores\VentaController.java

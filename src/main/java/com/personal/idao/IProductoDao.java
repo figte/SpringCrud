@@ -9,9 +9,9 @@ public interface IProductoDao {
 
     public Producto obtenerById(int id);
     
-    public Boolean guardar(Producto persona);
+    public Boolean guardar(Producto producto);
 
-    public Boolean modificar(Producto persona);
+    public Boolean modificar(Producto producto);
 
-    public Boolean eliminar(Producto persona); 
+    public Boolean eliminar(Producto producto); 
 }

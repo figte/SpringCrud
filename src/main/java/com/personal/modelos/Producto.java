@@ -6,6 +6,7 @@
 package com.personal.modelos;
 
 import java.io.Serializable;
+import java.util.Collection;
 import java.util.List;
 import javax.persistence.Basic;
 import javax.persistence.CascadeType;
@@ -58,7 +59,7 @@ public class Producto implements Serializable {
     @Column(name = "existencias")
     private int existencias;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "idProducto")
-    private List<DetallesVenta> detallesVentaList;
+    private Collection<DetallesVenta> detallesVentaList;
 
     public Producto() {
     }
@@ -107,11 +108,11 @@ public class Producto implements Serializable {
     }
 
     @XmlTransient
-    public List<DetallesVenta> getDetallesVentaList() {
+    public Collection<DetallesVenta> getDetallesVentaList() {
         return detallesVentaList;
     }
 
-    public void setDetallesVentaList(List<DetallesVenta> detallesVentaList) {
+    public void setDetallesVentaList(Collection<DetallesVenta> detallesVentaList) {
         this.detallesVentaList = detallesVentaList;
     }
 

@@ -26,10 +26,10 @@
 
         <%@include file="../componentes/nabvar.jsp" %>
         <div class="container" style="margin-top:3%">
-
-
+         <h1 class="text-center mt-2"><span class="fas fa-table"></span> Lista  de Personas</h1>    
+         <hr/>
             <a href="/SpringCrud/Persona/nuevo"  class="btn btn-primary mt-2"><span class="fas fa-plus"></span> Nuevo</a> <br><br>
-            <h1 class="text-center mt-2"><span class="fas fa-table"></span> Lista  de Personas</h1>
+            <br><br>
             <table id="tdatos"  class="table table-striped table-bordered table-hover" style="width:100%">
                 <thead>
                     <tr>

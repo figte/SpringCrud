@@ -9,6 +9,7 @@
      
       <li ><a href="/SpringCrud/Persona/index">Personas</a></li>
       <li><a href="/SpringCrud/Venta/index">Ventas</a></li>
+        <li><a href="/SpringCrud/productos/index">Productos</a></li>
     </ul>
     <ul class="nav navbar-nav navbar-right">
         <li><a >Usuario: <%=session.getAttribute("usuario")%> </a></li>
