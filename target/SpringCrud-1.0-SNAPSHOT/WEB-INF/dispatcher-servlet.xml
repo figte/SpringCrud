@@ -19,7 +19,8 @@
      Para cargar los recursos como script y estilos
     -->
    <mvc:resources mapping="/assets/**" location="/assets/"/>
-   
+   <mvc:resources mapping="/**" location="/"/>
+    
     <bean class="org.springframework.web.servlet.mvc.support.ControllerClassNameHandlerMapping"/>
 
    
