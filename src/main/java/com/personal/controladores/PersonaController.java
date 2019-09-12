@@ -6,6 +6,7 @@ import com.personal.idao.IPersonaDao;
 import com.personal.modelos.Persona;
 import java.util.List;
 import javax.servlet.http.HttpServletRequest;
+import org.springframework.context.annotation.ComponentScan;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -15,6 +16,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 @Controller
 @RequestMapping("Persona")
+
 public class PersonaController {
      IPersonaDao personaDao;
 

@@ -1,4 +1,6 @@
-  //SE ASEGURA LA CARGA DEL DOCUMENTO PARA INICIAR CON LAS ACCIONES.
+
+
+//SE ASEGURA LA CARGA DEL DOCUMENTO PARA INICIAR CON LAS ACCIONES.
             $(document).ready(function () {
                 $('#tdatos').DataTable();
                 cargarDatos(); //CARGA LOS REGISTROS EL LA TABLA 
